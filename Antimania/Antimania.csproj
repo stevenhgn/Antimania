@@ -303,8 +303,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\RainCollision.cs" />
+    <Compile Include="Assets\Script\GameController.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
+    <Compile Include="Assets\Script\RainCollision.cs" />
+    <Compile Include="Assets\Script\ScoreScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

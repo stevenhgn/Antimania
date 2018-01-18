@@ -22,7 +22,7 @@ public class RainCollision : MonoBehaviour {
         }
         if (col.gameObject.name == "Ant_Player")
         {
-            PlayerController.instance.Die();
+            PlayerController.instance.IsDead();
                   
         }
     }

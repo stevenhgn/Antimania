@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
-    
-    public static PlayerController instance;
-    int score;
-    bool dead = false;
+public class GameController : MonoBehaviour {
+    public static GameController instance;
 
-    void Awake()
+
+    public float score { get; set; }
+
+        
+    private void Awake()
     {
         // If we don't currently have a game controll....
         if (instance == null)
@@ -19,22 +20,19 @@ public class PlayerController : MonoBehaviour {
             Destroy(gameObject);
         DontDestroyOnLoad(this); // this object needs to be kept throughout the wholegame
     }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start () {
+        score = 0;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (PlayerController.instance.IsDead()) 
+        {
+            Debug.Log("Game over!");
+        }
+        
 	}
 
-    public bool IsDead() 
-    {
-        Debug.Log("You died.");
-        dead = true;
-        return dead;
-    }
 
 }
