@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour {
 
 
     public float score { get; set; }
-
+    bool gameOver = false;
         
     private void Awake()
     {
@@ -27,10 +27,14 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (PlayerController.instance.IsDead()) 
-        {
-            Debug.Log("Game over!");
+        while (gameOver == false) {
+            if (PlayerController.instance.IsDead())
+            {
+                Debug.Log("Game over!");
+                gameOver = true;
+            }
         }
+
         
 	}
 

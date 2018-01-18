@@ -27,7 +27,16 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if ((Input.GetKey(KeyCode.RightArrow))){
+            //transform.position = new Vector3(2, 0, 0);
+            transform.Translate(Vector3.right * Time.deltaTime *2, Camera.main.transform);
+        }
+        if((Input.GetKey(KeyCode.LeftArrow))) {
+            transform.Translate(Vector3.left * Time.deltaTime *2, Camera.main.transform);
+
+        }
+            
+    
 	}
 
     public bool IsDead() 
