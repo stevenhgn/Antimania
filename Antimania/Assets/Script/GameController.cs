@@ -27,13 +27,12 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        while (gameOver == false) {
-            if (PlayerController.instance.IsDead())
+
+            if (PlayerController.instance.dead && !gameOver)
             {
                 Debug.Log("Game over!");
                 gameOver = true;
             }
-        }
 
         
 	}

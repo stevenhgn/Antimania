@@ -6,10 +6,11 @@ public class PlayerController : MonoBehaviour {
     
     public static PlayerController instance;
     int score;
-    bool dead = false;
+    public bool dead { get; set; } 
 
     void Awake()
     {
+        dead = false;
         // If we don't currently have a game controll....
         if (instance == null)
         {
