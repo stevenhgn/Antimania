@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreScript : MonoBehaviour {
-    
+
+    private IEnumerator coroutine;
     public Text Score;
 	// Use this for initialization
 	void Start () {
-		
+
+        coroutine = IncreaseScoreValue(0.5f);
+        StartCoroutine(coroutine);
 	}
 	
 	// Update is called once per frame
@@ -19,12 +22,16 @@ public class ScoreScript : MonoBehaviour {
         Score.text = scoreValue;
 
         // Deal damage to player overtime
-        IncreaseScoreValue(0.05f);
+        IncreaseScoreValue(1);
 	}
 
-    public void IncreaseScoreValue(float value)
+    private IEnumerator IncreaseScoreValue(float waitTime)
     {
-        GameController.instance.score += value;
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            GameController.instance.score += 1;
+        }
 
     }
 }

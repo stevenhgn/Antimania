@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
     public static GameController instance;
 
-
-    public float score { get; set; }
+    public GameObject RainDrop;
+    public int score { get; set; }
     bool gameOver = false;
         
     private void Awake()
@@ -28,14 +28,17 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-            if (PlayerController.instance.dead && !gameOver)
-            {
-                Debug.Log("Game over!");
-                gameOver = true;
-            }
+        if (PlayerController.instance.dead && !gameOver)
+        {
+            Debug.Log("Game over!");
+            gameOver = true;
+        }
 
-        
-	}
+        if(score%5 == 0)
+        {
+            Debug.Log("Spawn rain!");
+        }
+    }
 
 
 }
